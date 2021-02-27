@@ -25,28 +25,31 @@ For converting the original MNIST dataset into a binarized version (including la
 ```python
 from src.mnist_binarizer import MNIST_BINARIZER
 converter = MNIST_BINARIZER()
-convert.convert()
+converter.convert()
 ```
 
 For reading the images, assuming they are in the same directory as the working directory:
 
 ```python
+import numpy as np
 
 # For the training set
 num_examples = 60000
 
-with open('train-labels.txt', 'rb')
-  labels = np.fromfile(f, dtype='uint8', count=-1, sep='')
-with open('train-images.txt', 'rb')
-  np.fromfile(f, dtype='bool', count=-1, sep='').reshape((num_examples,) + (28, 28, 1))
+with open('train-labels.txt', 'rb') as f:
+  train_labels = np.fromfile(f, dtype='uint8', count=-1, sep='')
+
+with open('train-images.txt', 'rb') as f:
+  train_images = np.fromfile(f, dtype='bool', count=-1, sep='').reshape((num_examples,) + (28, 28, 1))
 
 # For the test set
 num_examples = 10000
 
-with open('test-labels.txt', 'rb')
-  labels = np.fromfile(f, dtype='uint8', count=-1, sep='')
-with open('test-images.txt', 'rb')
-  np.fromfile(f, dtype='bool', count=-1, sep='').reshape((num_examples,) + (28, 28, 1))
+with open('test-labels.txt', 'rb') as f:
+  test_labels = np.fromfile(f, dtype='uint8', count=-1, sep='')
+
+with open('test-images.txt', 'rb') as f:
+  test_images = np.fromfile(f, dtype='bool', count=-1, sep='').reshape((num_examples,) + (28, 28, 1))
 
 ```
 
@@ -55,6 +58,6 @@ For visualizing the images (requires additional dependency `matplotlib`):
 ```python
 import matplotlib.pyplot as plt
 
-plt.imshow(images[0], cmap='binary')
+plt.imshow(train_images[0], cmap='binary')
 plt.show()
 ```
