@@ -6,7 +6,7 @@ import numpy as np
 
 class MNIST_BINARIZER(object):
 
-  # Required storage space:
+  # Required storage space (for dtype='bool'):
   # 70Kb in labels
   # 54.8Mb in images
 
@@ -18,7 +18,7 @@ class MNIST_BINARIZER(object):
       dataset = tfds.load('mnist', split=split, as_supervised=True)
       num_examples = len(dataset)
 
-      b_images = np.ndarray((num_examples,) + (28, 28, 1), dtype="bool")
+      b_images = np.ndarray((num_examples,) + (28, 28, 1), dtype="uint8")
       labels = np.ndarray(num_examples, dtype="uint8")
 
       for i, (image, label) in enumerate(tfds.as_numpy(dataset)):
