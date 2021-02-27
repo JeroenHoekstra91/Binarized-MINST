@@ -2,3 +2,4 @@ tensorflow_datasets
 tensorflow
 numpy
 matplotlib
+six

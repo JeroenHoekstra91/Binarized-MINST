@@ -61,3 +61,13 @@ import matplotlib.pyplot as plt
 plt.imshow(train_images[0], cmap='binary')
 plt.show()
 ```
+
+For using the Tensorflow dataset builder:
+
+```python
+import tensorflow_datasets as tfds
+from src.labeled_binarized_mnist import LabeledBinarizedMnist
+
+ds, ds_info = tfds.load('labeled_binarized_mnist', split='train', with_info=True)
+fig = tfds.show_examples(ds, ds_info)
+```
