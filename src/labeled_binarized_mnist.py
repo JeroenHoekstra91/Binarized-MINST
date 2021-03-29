@@ -6,7 +6,7 @@ from tensorflow_datasets.image_classification import mnist
 from six.moves import urllib
 import numpy as np
 
-# Markdown description  that will appear on the catalog page.
+# Markdown description that will appear on the catalog page.
 _DESCRIPTION = """
 """
 
