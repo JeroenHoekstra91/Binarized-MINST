@@ -13,9 +13,8 @@ class MNIST_BINARIZER(object):
 
   def convert(self, downscale=False):
     for split in ['train', 'test']:
-      filename_prefix = "ds-" if downscale else ""
-      images_file_name = filename_prefix + split + '-images.txt'
-      labels_file_name = filename_prefix + split + '-labels.txt'
+      images_file_name = split + '-images.txt'
+      labels_file_name = split + '-labels.txt'
 
       dataset = tfds.load('mnist', split=split, as_supervised=True)
       num_examples = len(dataset)
